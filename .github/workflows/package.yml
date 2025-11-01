@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: crewcash/wallet-service
+  IMAGE_NAME: crewcash/template-project
   VERSION: ${{ github.sha }}
 
 jobs:
