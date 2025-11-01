@@ -1,7 +1,7 @@
 name: Release
 on:
   workflow_run:
-    workflows: ['Package and Publish']
+    workflows: ['Build and Package']
     types: [completed]
 concurrency: release
 
@@ -9,7 +9,7 @@ env:
   OWNER: crewcash
   REGISTRY: ghcr.io
   APP_REPO: template-project
-  DEPLOY_REPO: crewcash-deployment
+  DEPLOY_REPO: template-deployment
   VERSION: ${{ github.sha }}
 
 jobs:
