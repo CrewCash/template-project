@@ -1,9 +1,8 @@
 name: Package and Publish
 on:
   workflow_run:
-    workflows: ["Build, Test, Scan"]
-    types:
-      - completed
+    workflows: ['Build, Test, Scan']
+    types: [completed]
 
 env:
   REGISTRY: ghcr.io
