@@ -3,7 +3,7 @@ on:
   workflow_run:
     workflows: ['Package and Publish']
     types: [completed]
-concurrency: acceptance
+concurrency: release
 
 env:
   OWNER: crewcash
