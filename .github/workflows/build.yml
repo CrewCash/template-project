@@ -1,13 +1,8 @@
-name: Continuous Integration
+name: Build, Test, Scan
 on:
   push:
     branches:
       - '**'
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: crewcash/wallet-service
-  VERSION: ${{ github.sha }}
 
 jobs:
   build:
