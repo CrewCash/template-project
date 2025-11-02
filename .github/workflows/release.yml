@@ -9,7 +9,7 @@ env:
   OWNER: crewcash
   REGISTRY: ghcr.io
   APP_REPO: template-project
-  DEPLOY_REPO: template-deployment
+  DEPLOY_REPO: crewcash-deployment
   VERSION: ${{ github.sha }}
 
 jobs:
