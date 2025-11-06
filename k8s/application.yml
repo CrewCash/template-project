@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://crewcash-postgres/crewcashdb_wallet
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://crewcash-keycloak/realms/CrewCash
+app:
+  rabbit:
+    exchange: payment.exchange
+    exchange-type: fanout
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: template-project
+  server:
+    port: 9003
+
