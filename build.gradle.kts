@@ -48,6 +48,7 @@ tasks.named<Jar>("jar") {
 
 checkstyle {
     toolVersion = "10.15.0"	
+	config = resources.text.fromUri("https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml")
 }
 
 pmd {
