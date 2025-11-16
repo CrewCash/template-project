@@ -46,9 +46,11 @@ tasks.named<Jar>("jar") {
     enabled = false
 }
 
+
 checkstyle {
-    toolVersion = "10.15.0"	
-    configFile = file("${rootProject.projectDir}/config/checkstyle/google_checks.xml")
+    toolVersion = "10.15.0"
+    configFile = file("${rootProject.projectDir}/config/checkstyle/checkstyle.xml")
+    isIgnoreFailures = false
 }
 
 pmd {

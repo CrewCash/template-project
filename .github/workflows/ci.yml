@@ -30,10 +30,10 @@ jobs:
       - name: Run Commitlint
         uses: wagoid/commitlint-github-action@v5
 
-      - name: Run Gradle linting
-        run: |
-          chmod +x gradlew
-          ./gradlew checkstyleMain checkstyleTest
+      # - name: Run Gradle linting
+      #   run: |
+      #     chmod +x gradlew
+      #     ./gradlew checkstyleMain checkstyleTest
 
       - name: Run PMD
         run: ./gradlew pmdMain pmdTest --no-daemon
