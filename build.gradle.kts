@@ -2,6 +2,9 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.5.7"
 	id("io.spring.dependency-management") version "1.1.7"
+    id("checkstyle")
+    id("pmd")
+    id("com.github.spotbugs") version "5.2.3"
 }
 
 group = "com.crewcash"
@@ -29,6 +32,7 @@ dependencies {
 	// runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 	// runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:2.21.0")
 
+	testImplementation("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
@@ -40,4 +44,16 @@ tasks.withType<Test> {
 
 tasks.named<Jar>("jar") {
     enabled = false
+}
+
+checkstyle {
+    toolVersion = "10.15.0"	
+}
+
+pmd {
+    toolVersion = "6.56.0"
+}
+
+spotbugs {
+    toolVersion = "4.8.3"
 }

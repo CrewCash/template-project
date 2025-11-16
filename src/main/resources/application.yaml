@@ -1,3 +1,14 @@
 spring:
   application:
     name: template-project
+server:
+  port: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
