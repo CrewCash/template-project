@@ -18,6 +18,8 @@ env:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.semantic.outputs.nextRelease.version }}
     
     steps:
       - name: Checkout
