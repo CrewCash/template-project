@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   issues: write
+  packages: write
   pull-requests: write
 
 env:
@@ -45,7 +46,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(npx semantic-release | tee /dev/stderr | grep -oP '(?<=Created tag ).*')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT        
+          echo "version=$VERSION" >> $GITHUB_OUTPUT 
 
       - name: Log into GitHub Container Registry
         uses: docker/login-action@v3
