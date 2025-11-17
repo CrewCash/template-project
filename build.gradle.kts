@@ -54,7 +54,7 @@ checkstyle {
 }
 
 pmd {
-    toolVersion = "6.56.0"
+    toolVersion = "7.16.0"
 }
 
 spotbugs {
