@@ -3,7 +3,9 @@ on:
   workflow_run:
     workflows: ['Build and Package']
     types: [completed]
-concurrency: release
+concurrency:
+  group: release
+  cancel-in-progress: true
 
 env:
   OWNER: crewcash
