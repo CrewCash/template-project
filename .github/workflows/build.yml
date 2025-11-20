@@ -10,9 +10,6 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      security-events: write
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -20,7 +17,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
           cache: gradle
 
       - name: Build, unit tests and integration tests
@@ -33,6 +30,13 @@ jobs:
           name: build-output
           path: build/libs/*.jar
 
+  static-scan:
+    name: Static Vulnerability Scan
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      security-events: write
+    steps:
       - name: Code vulnerability scanning
         uses: anchore/scan-action@v3
         id: scan
@@ -46,6 +50,10 @@ jobs:
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
 
+  k8s-validate:
+    name: Validate Kubernetes Manifests
+    runs-on: ubuntu-22.04
+    steps:
       - name: Setup tools
         uses: alexellis/setup-arkade@v3
       - name: Install tools
